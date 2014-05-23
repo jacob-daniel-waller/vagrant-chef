@@ -1,0 +1,7 @@
+{
+  "vagrant",
+  "shell" => "zsh",
+  "ohmyzsh" => {
+    "theme" => "alf-magic",
+  },
+}
