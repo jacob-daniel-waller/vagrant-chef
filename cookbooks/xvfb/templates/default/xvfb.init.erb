@@ -1,8 +1,8 @@
 #!/bin/bash
 
 XVFB=/usr/bin/Xvfb
-XVFBARGS=":<%= @node[:xvfb][:display] %> -nolisten tcp -fbdir /var/run"
-PIDFILE=/var/run/xvfb.pid
+XVFBARGS=":<%= @node[:xvfb][:display] %> -nolisten tcp -fbdir /tmp"
+PIDFILE=/tmp/xvfb.pid
 case "$1" in
   start)
     echo -n "Starting virtual X frame buffer: Xvfb"
