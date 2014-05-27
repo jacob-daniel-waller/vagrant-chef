@@ -104,13 +104,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::libpq"
     chef.add_recipe "java"
-    chef.add_recipe "xvfb"
+    chef.add_recipe "chef-xvfb"
     chef.add_recipe "zip"
     chef.add_recipe "rvm::system"
     chef.add_recipe "rvm::user"
     chef.add_recipe "rvm::gem_package"
     chef.add_recipe "libmagic"
     chef.add_recipe "memcached"
+    chef.add_recipe "chef-firefox"
 
     chef.json = {
       oh_my_zsh: {
@@ -151,31 +152,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       "rvm" => {
         "rubies" => [
           'ruby-2.1.1',
-          'ruby-2.1.0',
+          'ruby-2.1.2',
         ],
-        "default_ruby" => "ruby-2.1.1",
+        "default_ruby" => "ruby-2.1.2",
         "global_gems" => [
           {
             'name' => 'bundler',
-          },
-          {
-            'name' => 'chef',
           },
         ],
         'user_installs' => [
           {
             'user'          => 'vagrant',
-            'default_ruby'  => 'ruby-2.1.1',
+            'default_ruby'  => 'ruby-2.1.2',
             "rubies" => [
               'ruby-2.1.1',
-              'ruby-2.1.0',
+              'ruby-2.1.2',
             ],
             "global_gems" => [
               {
                 'name' => 'bundler',
-              },
-              {
-                'name' => 'chef',
               },
             ],
           },
