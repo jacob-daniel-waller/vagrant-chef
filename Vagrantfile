@@ -104,7 +104,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::libpq"
     chef.add_recipe "java"
-    chef.add_recipe "chef-xvfb"
     chef.add_recipe "zip"
     chef.add_recipe "rvm::system"
     chef.add_recipe "rvm::user"
@@ -112,6 +111,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "libmagic"
     chef.add_recipe "memcached"
     chef.add_recipe "chef-firefox"
+    chef.add_recipe "xvfb"
 
     chef.json = {
       oh_my_zsh: {
