@@ -88,6 +88,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = "cookbooks" # path to your cookbooks
     chef.data_bags_path = "data_bags" # path to your data_bags
+    chef_gem_path    = "/opt/chef/embedded/lib/ruby/gems/1.9.1"
+    chef.binary_env  = "GEM_PATH=#{chef_gem_path} GEM_HOME=#{chef_gem_path}"
+    chef.binary_path = "/opt/chef/bin"
 
     chef.add_recipe "apt"
     chef.add_recipe "build-essential"
@@ -110,8 +113,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "rvm::gem_package"
     chef.add_recipe "libmagic"
     chef.add_recipe "memcached"
-    chef.add_recipe "chef-firefox"
-    chef.add_recipe "xvfb"
+    chef.add_recipe "chef-headless-firefox"
 
     chef.json = {
       oh_my_zsh: {
