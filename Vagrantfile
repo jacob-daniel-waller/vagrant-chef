@@ -102,7 +102,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "sysctl"
     chef.add_recipe "ohai"
     chef.add_recipe "vim"
-    chef.add_recipe "zsh"
     chef.add_recipe "oh-my-zsh"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::libpq"
