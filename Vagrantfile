@@ -131,6 +131,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
           },
         ],
       },
+      'memcached' => {
+        'listen' => 'localhost',
+      },
       "postgresql" => {
         "users" => [
           "username" => "vagrant",
