@@ -81,12 +81,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "postgresql::libpq"
     chef.add_recipe "java"
     chef.add_recipe "zip"
+    chef.add_recipe 'rvm::vagrant'
     chef.add_recipe "rvm::system"
-    chef.add_recipe "rvm::user"
-    chef.add_recipe "rvm::gem_package"
     chef.add_recipe "libmagic"
     chef.add_recipe "memcached"
-    chef.add_recipe "chef-headless-firefox"
+    chef.add_recipe "headless-firefox"
+    chef.add_recipe 'mysql'
 
     chef.json = {
       oh_my_zsh: {
@@ -101,7 +101,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
               'ruby',
               'bundler',
               'virtualenv',
-            ]
+            ],
           },
         ],
       },
@@ -127,30 +127,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         ],
         'listen_addresses' => '*',
       },
-      "rvm" => {
-        "rubies" => [
-          'ruby-2.1.3',
+      'rvm' => {
+        'gpg' => {},
+        'install_rubies' => true,
+        'default_ruby' => 'ruby-2.2.2',
+        'rubies' => [
+          'ruby-2.2.2',
         ],
-        "default_ruby" => "ruby-2.1.3",
-        "global_gems" => [
-          {
-            'name' => 'bundler',
-          },
-        ],
-        'user_installs' => [
-          {
-            'user'          => 'vagrant',
-            'default_ruby'  => 'ruby-2.1.3',
-            "rubies" => [
-              'ruby-2.1.3',
-            ],
-            "global_gems" => [
-              {
-                'name' => 'bundler',
-              },
-            ],
-          },
-        ],
+        'gems' => {
+          'ruby-2.2.2' => [
+            { 'name' => 'bundler' },
+          ]
+        },
       },
     }
   end

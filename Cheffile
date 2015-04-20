@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'https://supermarket.getchef.com/api/v1'
+
+cookbook "apt"
+cookbook "build-essential"
+cookbook "chef-headless-firefox", git: 'git@github.com:roadtrippers/chef-headless-firefox.git'
+cookbook "chef-solo-search"
+cookbook "chef_gem"
+cookbook "chef_handler"
+cookbook "firefox"
+cookbook "git"
+cookbook "java"
+cookbook "libmagic", git: 'git@github.com:wallerjake/libmagic.git'
+cookbook "magic_shell"
+cookbook "memcached"
+cookbook "mysql"
+cookbook "oh-my-zsh", git: 'git@github.com:shingara/oh-my-zsh-chef.git'
+cookbook "ohai"
+cookbook "openssl"
+cookbook "postgresql", git: 'https://github.com/phlipper/chef-postgresql'
+cookbook "ruby_build"
+cookbook "runit"
+#cookbook "rvm", git: 'git@github.com:martinisoft/chef-rvm.git'
+cookbook 'rvm', git: 'git://github.com/fnichol/chef-rvm.git'
+#cookbook 'rvm', git: 'git://github.com/fnichol/chef-rvm.git', ref: 'v0.9.2'
+cookbook "sysctl"
+cookbook "users"
+cookbook "vim"
+cookbook "xvfb"
+cookbook "zip"
+cookbook "zsh"
+
+# cookbook 'chef-client'
+
+# cookbook 'apache2', '>= 1.0.0'
+
+# cookbook 'rvm',
+#   :git => 'https://github.com/fnichol/chef-rvm'
+
+# cookbook 'postgresql',
+#   :git => 'https://github.com/findsyou/cookbooks',
+#   :ref => 'postgresql-improvements'
